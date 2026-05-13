@@ -230,12 +230,12 @@
 <div class="explainer">
   <b>¿Qué ves aquí?</b><br>
   Cada tarjeta es un mensaje que viajó así:<br>
-  <b>Presentador</b> → broker <code>broker.emqx.io</code> → <b>tu navegador</b><br><br>
+  <b>Presentador</b> → broker <code>10.43.100.146</code> → <b>tu navegador</b><br><br>
   Tú y el presentador nunca se conectaron directamente. Solo conocen al broker y al topic <code>sisdist/#</code>. Eso es el <b>desacoplamiento</b> que hace a MQTT útil en sistemas distribuidos.
 </div>
 
 <script>
-const BROKER = "wss://broker.emqx.io:8084/mqtt";
+const BROKER = "ws://10.43.100.146:8083/mqtt";
 const TOPIC  = "sisdist/#";
 
 let client = null;
@@ -258,7 +258,7 @@ function toggle() {
 
   client.on("connect", () => {
     client.subscribe(TOPIC, { qos: 1 });
-    setEstado("Conectado · broker.emqx.io · sisdist/#", true);
+    setEstado("Conectado · 10.43.100.146 · sisdist/#", true);
     addSys("✅ Suscrito a <code>sisdist/#</code> — esperando mensajes del presentador…");
   });
 
